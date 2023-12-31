@@ -41,7 +41,7 @@ export const executeStop = () => {
 
 let execute = true;
 
-export async function executeTransaction(sKey: string, tick: string = "MOVE") {
+export async function executeTransaction(sKey: string,seconds: number = 10, tick: string = "MOVE") {
   const secretKey = sKey; // 修改这里，填入私钥
   const PACKAGE_ID =
     "0x830fe26674dc638af7c3d84030e2575f44a2bdc1baa1f4757cfe010a4b106b6a"; // mainnet
@@ -59,7 +59,7 @@ export async function executeTransaction(sKey: string, tick: string = "MOVE") {
   while (execute) {
     let current_epoch = await get_current_epoch(suiClient, TickRecordID);
     if (latest_epoch == current_epoch) {
-      await sleep(10 * 1000); // 10 seconds
+      await sleep(seconds * 1000); // 10 seconds
       continue;
     }
     latest_epoch = current_epoch;

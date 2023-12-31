@@ -1,0 +1,20 @@
+@keyframes colorChangeAnimation {
+    0% {
+        background-color: blue;
+    }
+
+    50% {
+        background-color: yellow;
+    }
+
+    100% {
+        background-color: green;
+    }
+}
+
+.animate-bg {
+    animation-name: colorChangeAnimation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    /* 让动画无限循环 */
+}
