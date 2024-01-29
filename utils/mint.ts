@@ -41,7 +41,7 @@ export const executeStop = () => {
 
 let execute = true;
 
-export async function executeTransaction(sKey: string,seconds: number = 10, tick: string = "MOVE") {
+export async function executeTransaction(sKey: string,seconds: number = 10, tick: string) {
   const secretKey = sKey; // 修改这里，填入私钥
   const PACKAGE_ID =
     "0x830fe26674dc638af7c3d84030e2575f44a2bdc1baa1f4757cfe010a4b106b6a"; // mainnet
@@ -50,6 +50,7 @@ export async function executeTransaction(sKey: string,seconds: number = 10, tick
   const MINT_FEE = 100000000; // 0.1 SUI
   const TICK = tick;
 
+  console.log(tick);
   // Keypair from an existing secret key (Uint8Array)
   const keypair = Ed25519Keypair.fromSecretKey(fromHEX(secretKey));
   const publickey = new Ed25519PublicKey(keypair.getPublicKey().toRawBytes());
